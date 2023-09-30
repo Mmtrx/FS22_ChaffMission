@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="77">
+	<author>Mmtrx</author>
+	<version>1.0.0.0</version>
+	<title>
+		<en>Forage Contracts</en>
+		<de>Häcksel-Aufträge</de>
+		<fr>Contrats De Forage</fr>
+	</title>
+	<description>
+		<en>
+			<![CDATA[
+Implements field forage harvest contracts
+]]>
+		</en>
+		<de>
+			<![CDATA[
+Erzeugt Aufträge zum Häckseln von Feldern
+]]>
+		</de>
+		<fr>
+			<![CDATA[
+Les contrats des hacheuse
+]]>
+		</fr>
+	</description>
+	<iconFilename>icon_ChaffMission.dds</iconFilename>
+	<multiplayer supported="true" />
+	<extraSourceFiles>
+		<sourceFile filename="chaffMission.lua" />
+	</extraSourceFiles>
+	<missionVehicles filename="missionVehicles/vehicles.xml" />
+
+	<l10n>
+		<text name="fieldJob_jobType_forage">
+			<en>Forage</en>
+			<de>Häckseln</de>
+			<fr>Hacheuse</fr>
+		</text>
+		<text name="fieldJob_desc_action_forage">
+			<en>for forage harvesting</en>
+			<de>zum Häckseln</de>
+			<fr>pour hacher</fr>
+		</text>
+		<text name="fieldJob_desc_forage">
+			<en>Cut %s on field %d and take the forage to %s.</en>
+			<de>Häcksle %s auf Feld %d, und liefere das Häckselgut an %s.</de>
+			<fr>Récoltez-hacheuse %s au champ %d. Apportez le produit à %s.</fr>
+		</text>
+		<text name="bcCheck">
+			<en><![CDATA[
+FS22_ChaffMission is incompatible with BetterContracts versions below v%s. 
+You can get the latest update of BetterContracts at https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
+]]>			</en>
+			<de><![CDATA[
+FS22_ChaffMission ist mit BetterContracts-Versionen kleiner v%s inkompatibel. 
+Die neueste Version von BetterContracts gibt es unter https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
+]]>			</de>
+			<fr><![CDATA[
+FS22_ChaffMission est incompatible avec les versions de BetterContracts inférieures à v%s. 
+La dernière version de BetterContracts est disponible sur https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
+]]>			</fr>
+		</text>
+	</l10n>
+</modDesc>

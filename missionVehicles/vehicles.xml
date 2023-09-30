@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--=====================================================================================================
+	FS22_ChaffMission mission vehicles 
+	Purpose:    provide loan vehicles for ingame chaff cutting contracts 
+	Author:     Mmtrx       
+	Changelog:
+	 v1.0.0.0   21.09.2023  initial 
+======================================================================================================-->
+<missionVehicles overwrite="false">
+	<variants/>
+ 
+	<mission type="chaff">
+		<group fieldSize="small">
+			<vehicle filename="$data/vehicles/lacotec/lhII/lhII.xml" /> 			<!-- harvester -->
+			<vehicle filename="$data/vehicles/kemper/plus345/plus345.xml" />		<!-- cutter -->
+			<vehicle filename="$data/vehicles/deutzFahr/series7/series7.xml"/>  	<!-- tractor -->
+			<vehicle filename="$data/vehicles/agco/weight2300/weight2300.xml">  	<!-- weight -->
+				<configuration name="baseMaterial" id="26"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/brantner/z18051/z18051.xml"> 			<!-- trailer -->
+				<configuration name="cover" id="2" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/fendt/favorit500/favorit500.xml" /> 	<!-- tractor -->
+			<vehicle filename="$data/vehicles/brantner/z18051/z18051.xml"> 			<!-- trailer -->
+				<configuration name="cover" id="2" />
+				<configuration name="wheel" id="2" />
+			</vehicle>
+		</group>
+
+		<group fieldSize="small">
+			<vehicle filename="$data/vehicles/newHolland/fr780/fr780.xml" > 		<!-- harvester -->
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/kemper/plus360/plus360_newHolland.xml"/>	<!-- cutter -->
+			<vehicle filename="$data/vehicles/fendt/favorit500/favorit500.xml" /> 	<!-- tractor -->
+			<vehicle filename="$data/vehicles/claas/carat/carat.xml">				<!-- trailer -->
+				<configuration name="fillVolume" id="2" />
+				<configuration name="fillUnit" id="2" />
+				<configuration name="baseMaterial" id="2"/>
+			</vehicle>
+		</group>
+
+		<group fieldSize="medium">  <!-- use 7.5 m cutter -->
+			<vehicle filename="$data/vehicles/claas/jaguar960TT/jaguar960TT.xml" /> <!-- harvester -->
+			<vehicle filename="$data/vehicles/claas/orbis750/orbis750.xml" />		<!-- cutter -->
+			<vehicle filename="$data/vehicles/claas/arion600/arion600.xml" > 		<!-- tractor -->
+				<configuration name="motor" id="3"/>
+				<configuration name="wheel" id="4"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/brantner/ta23071/ta23071.xml"/> 		<!-- trailer -->
+		</group>
+
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/johnDeere/series9000/series9000.xml" >		<!-- harvester -->
+				<configuration name="pipe" id="2"/>
+				<configuration name="wheel" id="2"/>
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/kemper/plus375/plus375_johnDeere.xml"/><!-- cutter -->
+			<vehicle filename="$data/vehicles/deutzFahr/series7/series7.xml"/>  	<!-- tractor -->
+			<vehicle filename="$data/vehicles/fliegl/tmk273/tmk273.xml"/>			<!-- trailer -->
+		</group>
+
+		<group fieldSize="medium">
+			<vehicle filename="$data/vehicles/newHolland/fr780/fr780.xml" > 		<!-- harvester -->
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/kemper/plus375/plus375_newHolland.xml"/><!-- cutter -->
+			<vehicle filename="$data/vehicles/newHolland/t8/t8.xml"> 				<!-- tractor -->
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/kaweco/radium255/radium255.xml"/>		<!-- trailer -->
+		</group>
+
+		<group fieldSize="large"> 	<!-- use 9 m cutter -->
+			<vehicle filename="$data/vehicles/fendt/katana650/katana650.xml" >		<!-- harvester -->
+				<configuration name="pipe" id="3"/>
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/kemper/plus390/plus390.xml" >			<!-- cutter -->
+				<configuration name="inputAttacherJoint" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/t8/t8.xml">				<!-- tractor -->
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/bergmann/htw65/htw65.xml"> 			<!-- trailer -->
+				<configuration name="cover" id="2"/>
+			</vehicle>
+		</group>
+
+		<group fieldSize="large"> 	
+			<vehicle filename="$data/vehicles/johnDeere/series9000/series9000.xml">	<!-- harvester -->
+				<configuration name="pipe" id="3"/>
+				<configuration name="wheel" id="2"/>
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/kemper/plus390/plus390_johnDeere.xml" ><!-- cutter -->
+				<configuration name="inputAttacherJoint" id="7"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">		<!-- tractor -->
+				<configuration name="motor" id="2" />
+				<configuration name="wheel" id="6" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bergmann/htw65/htw65.xml"> 			<!-- trailer -->
+				<configuration name="cover" id="2"/>
+			</vehicle>
+		</group>
+
+		<group fieldSize="large">
+			<vehicle filename="$data/vehicles/krone/bigX1180/bigX1180.xml" >		<!-- harvester -->
+				<configuration name="pipe" id="2"/>
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/collect900_3/collect900_3.xml" /><!-- cutter -->
+			<vehicle filename="$data/vehicles/man/tgs18500/tgs18500.xml">	 		<!-- truck -->
+				<configuration name="baseMaterial" id="15"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/sks30_150/sks30_150.xml"/> 	<!-- trailer -->
+		</group>
+	</mission>
+</missionVehicles>
