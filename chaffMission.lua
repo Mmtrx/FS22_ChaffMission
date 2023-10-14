@@ -5,10 +5,12 @@
 -- Author:      Mmtrx
 -- Changelog:
 --  v1.0.0.0    01.08.2023  initial
+--  v1.0.1.0    14.10.2023  handle fillTypeCategories in selling stations (#3). Allow choppedmaize /Maize+ (#2)
 -- Attribution	modIcon harvester from <a href="https://www.freepik.com">Image by macrovector</a> 
 --=======================================================================================================
 ChaffMission = {
-	debug = false,
+	debug = true,
+	maizeplus = false,
 	REWARD_PER_HA = 5000,
 	SUCCESS_FACTOR = 0.90
 }
@@ -36,6 +38,9 @@ function ChaffMission:loadFromXMLFile(xmlFile, key)
 	end
 	self.orgFillType = self.fillType
 	self.fillType = FillType.CHAFF
+	if ChaffMission.maizeplus and self.orgFillType == FillType.MAIZE then 
+		self.fillType = FillType.CHOPPEDMAIZE
+	end
 	return true
 end
 
@@ -43,6 +48,9 @@ function ChaffMission:init(field, ...)
 	local fruitDesc = g_fruitTypeManager:getFruitTypeByIndex(field.fruitType)
 	self.orgFillType = fruitDesc.fillType.index
 	self.fillType = FillType.CHAFF
+	if ChaffMission.maizeplus and self.orgFillType == FillType.MAIZE then 
+		self.fillType = FillType.CHOPPEDMAIZE
+	end
 
 	if not HarvestMission:superClass().init(self, field, ...) then
 		return false
@@ -186,12 +194,34 @@ function addSellingStation(self, superFunc, components, xmlFile, key, ...)
 		and not xmlFile:getBool(key.."#hideFromPricesMenu", false) then
 
 		xmlFile:iterate(key..".unloadTrigger", function(index,  unloadTriggerKey)
-			local fillTypes = xmlFile:getString(unloadTriggerKey.."#fillTypes") 
+			local fillTypeNames = xmlFile:getString(unloadTriggerKey.."#fillTypes") 
+			local fillTypeCategories = xmlFile:getValue(unloadTriggerKey .. "#fillTypeCategories")
 
 			-- add only to triggers with wheat or straw:
-			if string.find(fillTypes, "WHEAT") or string.find(fillTypes, "STRAW") then 
+			if fillTypeNames == nil then 
+				fillTypeNames = ""
+				--local indexes = g_fillTypeManager:getFillTypesByCategoryNames(fillTypeCategories, "Warning: SellingStation has invalid fillTypeCategory '%s'.")
+				local catNames = string.split(fillTypeCategories, " ")
+				for _, cat in ipairs(catNames) do
+					if g_fillTypeManager:getIsFillTypeInCategory(FillType.CHAFF, cat) then 
+						-- Chaff already in selling station, can skip this
+						if added then added = false end 
+						break 
+					end
+					added = added or g_fillTypeManager:getIsFillTypeInCategory(FillType.WHEAT, cat) or
+						g_fillTypeManager:getIsFillTypeInCategory(FillType.STRAW, cat)  
+				end
+
+			elseif string.find(fillTypeNames, "WHEAT") or string.find(fillTypeNames, "STRAW") then 
 				added = true 
-				xmlFile:setString(unloadTriggerKey.."#fillTypes", fillTypes.." CHAFF")
+			end
+
+			if added then
+				local types = " CHAFF"
+				if ChaffMission.maizeplus then 
+					types = types .. " CHOPPEDMAIZE"
+				end
+				xmlFile:setString(unloadTriggerKey.."#fillTypes", fillTypeNames.. types)
 			end
 		end)
 
@@ -200,15 +230,24 @@ function addSellingStation(self, superFunc, components, xmlFile, key, ...)
 			xmlFile:iterate(key..".fillType", function(_, _)
 			  numberOfFillTypes = numberOfFillTypes + 1
 			end)
-			local nextKey = string.format("%s.fillType(%d)", key, numberOfFillTypes + 1)
-			xmlFile:setString(nextKey.."#name", "CHAFF")
-			xmlFile:setFloat(nextKey.."#priceScale", 1)
-			xmlFile:setBool(nextKey.."#supportsGreatDemand", false)
-			xmlFile:setBool(nextKey.."#disablePriceDrop", true)
-			debugPrint("* added CHAFF to sellPoint %s", self:getName())
+
+			addFt(xmlFile, key, numberOfFillTypes +1, "CHAFF")
+
+			if ChaffMission.maizeplus then 
+				addFt(xmlFile, key, numberOfFillTypes +2, "CHOPPEDMAIZE")
+			end
 		end
 	end
 	return superFunc(self, components, xmlFile, key, ...)
+end
+
+function addFt(xmlFile, key, ix, ftName)
+	local nextKey = string.format("%s.fillType(%d)", key, ix)
+	debugPrint("* add %s as fillType(%d) to sellPoint", ftName, ix)
+	xmlFile:setString(nextKey.."#name", ftName)
+	xmlFile:setFloat(nextKey.."#priceScale", 1)
+	xmlFile:setBool(nextKey.."#supportsGreatDemand", false)
+	xmlFile:setBool(nextKey.."#disablePriceDrop", true)
 end
 
 function bcCheck()
@@ -225,6 +264,11 @@ function bcCheck()
 	end
 	return true
 end
+
+function loadMapFinished( ... )
+	-- check for MaizePlus: 
+	ChaffMission.maizeplus = g_modIsLoaded.FS22_MaizePlus
+end
 -----------------------------------------------------------------------------------------------
 
 -- check BetterContracts sufficient version:
@@ -232,10 +276,12 @@ if bcCheck() then
 	WorkArea.getIsAccessibleAtWorldPosition = Utils.overwrittenFunction(WorkArea.getIsAccessibleAtWorldPosition,
 	 	getIsAccessible)
 	SellingStation.load = Utils.overwrittenFunction(SellingStation.load, addSellingStation)
+	BaseMission.loadMapFinished = Utils.appendedFunction(BaseMission.loadMapFinished, loadMapFinished)
 	
 	g_missionManager:registerMissionType(ChaffMission, "chaff")
 	
 	-- move chaff mission type before harvest: 
 	adjustMissionTypes("harvest")
+
 	addConsoleCommand("chGenerateFieldMission", "Force generating a new mission for given field", "	consoleGenerateFieldMission", g_missionManager)
 end
