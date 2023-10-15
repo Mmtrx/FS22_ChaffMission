@@ -6,11 +6,16 @@
 		<en>Forage Contracts</en>
 		<de>Häcksel-Aufträge</de>
 		<fr>Contrats De Forage</fr>
+		<ru>Контракты на заготовку кормов</ru>
 	</title>
 	<description>
 		<en>
 			<![CDATA[
 Implements field forage harvest contracts
+
+Changelog v1.0.1.1
+- fix MP sync (#3) 
+- Russian translation (#5)
 
 Changelog v1.0.1.0
 - Allow choppedmaize fillType for Maize+ (#2)
@@ -27,6 +32,11 @@ Erzeugt Aufträge zum Häckseln von Feldern
 Les contrats des hacheuse
 ]]>
 		</fr>
+		<ru>
+			<![CDATA[
+Заключает контракты на сбор полевых кормов
+]]>
+		</ru>
 	</description>
 	<iconFilename>icon_ChaffMission.dds</iconFilename>
 	<multiplayer supported="true" />
@@ -40,16 +50,19 @@ Les contrats des hacheuse
 			<en>Forage</en>
 			<de>Häckseln</de>
 			<fr>Hacheuse</fr>
+			<ru>Кормовой</ru>
 		</text>
 		<text name="fieldJob_desc_action_forage">
 			<en>for forage harvesting</en>
 			<de>zum Häckseln</de>
 			<fr>pour hacher</fr>
+			<ru>для заготовки кормов</ru>
 		</text>
 		<text name="fieldJob_desc_forage">
 			<en>Cut %s on field %d and take the forage to %s.</en>
 			<de>Häcksle %s auf Feld %d, und liefere das Häckselgut an %s.</de>
 			<fr>Récoltez-hacheuse %s au champ %d. Apportez le produit à %s.</fr>
+			<ru>Срежьте %s на поле %d и доставьте корм в %s.</ru>
 		</text>
 		<text name="bcCheck">
 			<en><![CDATA[
@@ -64,6 +77,10 @@ Die neueste Version von BetterContracts gibt es unter https://github.com/Mmtrx/F
 FS22_ChaffMission est incompatible avec les versions de BetterContracts inférieures à v%s. 
 La dernière version de BetterContracts est disponible sur https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
 ]]>			</fr>
+            <en><![CDATA[
+FS22_ChaffMission несовместима с нижеприведенными версиями BetterContracts v%s. 
+Вы можете ознакомиться с последними обновлениями BetterContracts по адресу https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
+]]>			</en>
 		</text>
 	</l10n>
 </modDesc>

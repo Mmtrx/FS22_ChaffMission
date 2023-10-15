@@ -6,6 +6,8 @@
 -- Changelog:
 --  v1.0.0.0    01.08.2023  initial
 --  v1.0.1.0    14.10.2023  handle fillTypeCategories in selling stations (#3). Allow choppedmaize /Maize+ (#2)
+--  v1.0.1.1    15.10.2023  fix MP sync (#3). Russian translation (#5)
+--
 -- Attribution	modIcon harvester from <a href="https://www.freepik.com">Image by macrovector</a> 
 --=======================================================================================================
 ChaffMission = {
@@ -42,6 +44,15 @@ function ChaffMission:loadFromXMLFile(xmlFile, key)
 		self.fillType = FillType.CHOPPEDMAIZE
 	end
 	return true
+end
+
+function ChaffMission:writeStream(streamId, connection)
+	ChaffMission:superClass().writeStream(self, streamId, connection)
+	streamWriteUIntN(streamId, self.orgFillType, FillTypeManager.SEND_NUM_BITS)
+end
+function ChaffMission:readStream(streamId, connection)
+	ChaffMission:superClass().readStream(self, streamId, connection)
+	self.orgFillType = streamReadUIntN(streamId, FillTypeManager.SEND_NUM_BITS)
 end
 
 function ChaffMission:init(field, ...)
