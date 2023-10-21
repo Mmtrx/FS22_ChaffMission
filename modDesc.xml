@@ -6,6 +6,7 @@
 		<en>Forage Contracts</en>
 		<de>Häcksel-Aufträge</de>
 		<fr>Contrats De Forage</fr>
+		<cz>Zakázky na řezanku</cz>
 		<ru>Контракты на заготовку кормов</ru>
 	</title>
 	<description>
@@ -32,6 +33,11 @@ Erzeugt Aufträge zum Häckseln von Feldern
 Les contrats des hacheuse
 ]]>
 		</fr>
+		<cz>
+			<![CDATA[
+Generuje zakázky o sklizni řezanky na poli
+]]>
+		</cz>
 		<ru>
 			<![CDATA[
 Заключает контракты на сбор полевых кормов
@@ -50,18 +56,21 @@ Les contrats des hacheuse
 			<en>Forage</en>
 			<de>Häckseln</de>
 			<fr>Hacheuse</fr>
+			<cz>Řezanka</cz>
 			<ru>Кормовой</ru>
 		</text>
 		<text name="fieldJob_desc_action_forage">
 			<en>for forage harvesting</en>
 			<de>zum Häckseln</de>
 			<fr>pour hacher</fr>
+			<cz>pro sklizeň řezanky</cz>
 			<ru>для заготовки кормов</ru>
 		</text>
 		<text name="fieldJob_desc_forage">
 			<en>Cut %s on field %d and take the forage to %s.</en>
 			<de>Häcksle %s auf Feld %d, und liefere das Häckselgut an %s.</de>
 			<fr>Récoltez-hacheuse %s au champ %d. Apportez le produit à %s.</fr>
+			<cz>Posekejte %s na poli %d a odvezte řezanku do %s.</cz>
 			<ru>Срежьте %s на поле %d и доставьте корм в %s.</ru>
 		</text>
 		<text name="bcCheck">
@@ -77,10 +86,14 @@ Die neueste Version von BetterContracts gibt es unter https://github.com/Mmtrx/F
 FS22_ChaffMission est incompatible avec les versions de BetterContracts inférieures à v%s. 
 La dernière version de BetterContracts est disponible sur https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
 ]]>			</fr>
-            <en><![CDATA[
+			<cz><![CDATA[
+FS22_ChaffMission není kompatibilní s verzemi BetterContracts pod v%s.
+Nejnovější aktualizaci BetterContracts můžete získat na https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
+]]>			</cz>
+            <ru><![CDATA[
 FS22_ChaffMission несовместима с нижеприведенными версиями BetterContracts v%s. 
 Вы можете ознакомиться с последними обновлениями BetterContracts по адресу https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
-]]>			</en>
+]]>			</ru>
 		</text>
 	</l10n>
 </modDesc>
