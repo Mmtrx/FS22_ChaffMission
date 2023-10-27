@@ -8,6 +8,7 @@
 		<fr>Contrats De Forage</fr>
 		<cz>Zakázky na řezanku</cz>
 		<ru>Контракты на заготовку кормов</ru>
+		<pl>Umowy na kiszonkę</pl>
 	</title>
 	<description>
 		<en>
@@ -43,6 +44,17 @@ Generuje zakázky o sklizni řezanky na poli
 Заключает контракты на сбор полевых кормов
 ]]>
 		</ru>
+		<pl>
+			<![CDATA[
+Wprowadza umowy na zbieranie kiszonki z pól
+Zmiany w wersji 1.0.1.1
+- Naprawa synchronizacji w trybie wieloosobowym (#3)
+- Tłumaczenie na język rosyjski (#5)
+Zmiany w wersji 1.0.1.0
+- Wprowadzono obsługę typu wypełnienia "choppedmaize" dla moda Maize+ (#2)
+- Obsługa kategorii typów wypełnienia w stacjach sprzedaży (#3)			
+]]>
+		</pl>
 	</description>
 	<iconFilename>icon_ChaffMission.dds</iconFilename>
 	<multiplayer supported="true" />
@@ -58,6 +70,7 @@ Generuje zakázky o sklizni řezanky na poli
 			<fr>Hacheuse</fr>
 			<cz>Řezanka</cz>
 			<ru>Кормовой</ru>
+			<pl>Kiszonka</pl>
 		</text>
 		<text name="fieldJob_desc_action_forage">
 			<en>for forage harvesting</en>
@@ -65,6 +78,7 @@ Generuje zakázky o sklizni řezanky na poli
 			<fr>pour hacher</fr>
 			<cz>pro sklizeň řezanky</cz>
 			<ru>для заготовки кормов</ru>
+			<pl>do zbierania kiszonki</pl>
 		</text>
 		<text name="fieldJob_desc_forage">
 			<en>Cut %s on field %d and take the forage to %s.</en>
@@ -72,6 +86,7 @@ Generuje zakázky o sklizni řezanky na poli
 			<fr>Récoltez-hacheuse %s au champ %d. Apportez le produit à %s.</fr>
 			<cz>Posekejte %s na poli %d a odvezte řezanku do %s.</cz>
 			<ru>Срежьте %s на поле %d и доставьте корм в %s.</ru>
+			<pl>Skoś %s na polu %d i dostarcz kiszonkę do %s.</pl>
 		</text>
 		<text name="bcCheck">
 			<en><![CDATA[
@@ -94,6 +109,10 @@ Nejnovější aktualizaci BetterContracts můžete získat na https://github.com
 FS22_ChaffMission несовместима с нижеприведенными версиями BetterContracts v%s. 
 Вы можете ознакомиться с последними обновлениями BetterContracts по адресу https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
 ]]>			</ru>
+			<pl><![CDATA[
+FS22_ChaffMission jest niekompatybilny z wersjami BetterContracts poniżej v%s. 
+Najnowszą wersję BetterContracts można pobrać na stronie https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
+]]>			</pl>
 		</text>
 	</l10n>
 </modDesc>
