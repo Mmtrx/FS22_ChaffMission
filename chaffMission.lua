@@ -198,33 +198,44 @@ function adjustMissionTypes(name)
 	end
 end
 
+function isTargetFilltype(typeNames)
+	-- return true if typeNames contain straw or hay
+	local txt = typeNames.." "
+	if string.find(txt, "GRASS_WINDROW ") or string.find(txt, "STRAW ") then 
+		return true 
+	end
+	return false
+end
+
 function addSellingStation(self, superFunc, components, xmlFile, key, ...)
   -- add chaff only for normal sellingstations that allow missions
-	local added = false
+	local needFtKey = false
 	if key == "placeable.sellingStation" and xmlFile:getBool(key.."#allowMissions", true) 
 		and not xmlFile:getBool(key.."#hideFromPricesMenu", false) then
-
+		debugPrint("*** checking selling station:")
+		local added = false
+		
 		xmlFile:iterate(key..".unloadTrigger", function(index,  unloadTriggerKey)
 			local fillTypeNames = xmlFile:getString(unloadTriggerKey.."#fillTypes") 
 			local fillTypeCategories = xmlFile:getValue(unloadTriggerKey .. "#fillTypeCategories")
+			debugPrint("    * unload %d: %s / %s", index, fillTypeNames, fillTypeCategories)
 
-			-- add only to triggers with wheat or straw:
+			-- add only to triggers with hay or straw:
 			if fillTypeNames == nil then 
 				fillTypeNames = ""
-				--local indexes = g_fillTypeManager:getFillTypesByCategoryNames(fillTypeCategories, "Warning: SellingStation has invalid fillTypeCategory '%s'.")
 				local catNames = string.split(fillTypeCategories, " ")
 				for _, cat in ipairs(catNames) do
 					if g_fillTypeManager:getIsFillTypeInCategory(FillType.CHAFF, cat) then 
 						-- Chaff already in selling station, can skip this
-						if added then added = false end 
+						added = false  
 						break 
 					end
-					added = added or g_fillTypeManager:getIsFillTypeInCategory(FillType.WHEAT, cat) or
-						g_fillTypeManager:getIsFillTypeInCategory(FillType.STRAW, cat)  
+					added = added or g_fillTypeManager:getIsFillTypeInCategory(FillType.DRYGRASS_WINDROW, cat) 
+						or g_fillTypeManager:getIsFillTypeInCategory(FillType.GRASS_WINDROW, cat)  
+						or g_fillTypeManager:getIsFillTypeInCategory(FillType.STRAW, cat)  
 				end
-
-			elseif string.find(fillTypeNames, "WHEAT") or string.find(fillTypeNames, "STRAW") then 
-				added = true 
+			else
+				added = isTargetFilltype(fillTypeNames) 
 			end
 
 			if added then
@@ -233,10 +244,11 @@ function addSellingStation(self, superFunc, components, xmlFile, key, ...)
 					types = types .. " CHOPPEDMAIZE"
 				end
 				xmlFile:setString(unloadTriggerKey.."#fillTypes", fillTypeNames.. types)
+				needFtKey = true
 			end
 		end)
 
-		if added then
+		if needFtKey then
 			local numberOfFillTypes = -1
 			xmlFile:iterate(key..".fillType", function(_, _)
 			  numberOfFillTypes = numberOfFillTypes + 1

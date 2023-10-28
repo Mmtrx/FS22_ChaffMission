@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="77">
 	<author>Mmtrx</author>
-	<version>1.0.1.0</version>
+	<version>1.0.2.0</version>
 	<title>
 		<en>Forage Contracts</en>
 		<de>Häcksel-Aufträge</de>
@@ -14,9 +14,12 @@
 			<![CDATA[
 Implements field forage harvest contracts
 
+Changelog v1.0.2.0
+- adequate sellpoints (#11) 
+
 Changelog v1.0.1.1
 - fix MP sync (#3) 
-- Russian translation (#5)
+- Russian, Czech translation (#5)
 
 Changelog v1.0.1.0
 - Allow choppedmaize fillType for Maize+ (#2)
