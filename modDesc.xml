@@ -1,23 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="77">
 	<author>Mmtrx</author>
-	<version>1.0.1.0</version>
+	<version>1.0.2.0</version>
 	<title>
 		<en>Forage Contracts</en>
 		<de>Häcksel-Aufträge</de>
 		<fr>Contrats De Forage</fr>
 		<cz>Zakázky na řezanku</cz>
 		<ru>Контракты на заготовку кормов</ru>
-		<pl>Umowy na kiszonkę</pl>
+		<pl>Kontrakt na sieczkę</pl>
 	</title>
 	<description>
 		<en>
 			<![CDATA[
 Implements field forage harvest contracts
 
+Changelog v1.0.2.0
+- adequate sellpoints (#11) 
+
 Changelog v1.0.1.1
 - fix MP sync (#3) 
-- Russian translation (#5)
+- Russian, Czech translation (#5)
 
 Changelog v1.0.1.0
 - Allow choppedmaize fillType for Maize+ (#2)
@@ -46,13 +49,19 @@ Generuje zakázky o sklizni řezanky na poli
 		</ru>
 		<pl>
 			<![CDATA[
-Wprowadza umowy na zbieranie kiszonki z pól
-Zmiany w wersji 1.0.1.1
-- Naprawa synchronizacji w trybie wieloosobowym (#3)
-- Tłumaczenie na język rosyjski (#5)
-Zmiany w wersji 1.0.1.0
-- Wprowadzono obsługę typu wypełnienia "choppedmaize" dla moda Maize+ (#2)
-- Obsługa kategorii typów wypełnienia w stacjach sprzedaży (#3)			
+Dodano kontrakty na sieczkę z pól
+
+Dzinnik zmian:
+v1.0.2.0
+- Poprawiono wykrywanie odpowienich punktów sprzedaży (#11)
+
+v1.0.1.1
+- Naprawiono synchronizację w MP (#3)
+- Dodano tłumaczenie rosyjskie i czeskie (#5)
+
+ v1.0.1.0
+- Dodano wsparcie dla ładunku "choppedmaize" dla Maize+ (#2)
+- Dodano wsparcie dla fillTypeCategories w punktach sprzedaży (#3)
 ]]>
 		</pl>
 	</description>
@@ -70,7 +79,7 @@ Zmiany w wersji 1.0.1.0
 			<fr>Hacheuse</fr>
 			<cz>Řezanka</cz>
 			<ru>Кормовой</ru>
-			<pl>Kiszonka</pl>
+			<pl>Sieczka</pl>
 		</text>
 		<text name="fieldJob_desc_action_forage">
 			<en>for forage harvesting</en>
@@ -78,7 +87,7 @@ Zmiany w wersji 1.0.1.0
 			<fr>pour hacher</fr>
 			<cz>pro sklizeň řezanky</cz>
 			<ru>для заготовки кормов</ru>
-			<pl>do zbierania kiszonki</pl>
+			<pl>za zebranie uprawy na sieczkę</pl>
 		</text>
 		<text name="fieldJob_desc_forage">
 			<en>Cut %s on field %d and take the forage to %s.</en>
@@ -86,7 +95,7 @@ Zmiany w wersji 1.0.1.0
 			<fr>Récoltez-hacheuse %s au champ %d. Apportez le produit à %s.</fr>
 			<cz>Posekejte %s na poli %d a odvezte řezanku do %s.</cz>
 			<ru>Срежьте %s на поле %d и доставьте корм в %s.</ru>
-			<pl>Skoś %s na polu %d i dostarcz kiszonkę do %s.</pl>
+			<pl>Zetnij %s na polu %d i dostarcz sieczkę do %s.
 		</text>
 		<text name="bcCheck">
 			<en><![CDATA[
@@ -110,8 +119,8 @@ FS22_ChaffMission несовместима с нижеприведенными �
 Вы можете ознакомиться с последними обновлениями BetterContracts по адресу https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
 ]]>			</ru>
 			<pl><![CDATA[
-FS22_ChaffMission jest niekompatybilny z wersjami BetterContracts poniżej v%s. 
-Najnowszą wersję BetterContracts można pobrać na stronie https://github.com/Mmtrx/FS22_BetterContracts/releases/latest.
+FS22_ChaffMission jest niekompatybilny z BetterContracts poniżej wersji %s. 
+Najnowszą wersję BetterContracts znajdziesz tutaj: https://github.com/Mmtrx/FS22_BetterContracts/releases/latest
 ]]>			</pl>
 		</text>
 	</l10n>
