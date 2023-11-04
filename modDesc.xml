@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="77">
 	<author>Mmtrx</author>
-	<version>1.0.2.0</version>
+	<version>1.0.3.0</version>
 	<title>
 		<en>Forage Contracts</en>
 		<de>Häcksel-Aufträge</de>
@@ -15,8 +15,10 @@
 			<![CDATA[
 Implements field forage harvest contracts
 
-Changelog v1.0.2.0
+Changelog v1.0.3.0
 - adequate sellpoints (#11) 
+- mow header for grain chaff missions (#16)
+- lowered reward/ha, lower prob on forage-ready fields (#16)
 
 Changelog v1.0.1.1
 - fix MP sync (#3) 
@@ -95,7 +97,7 @@ v1.0.1.1
 			<fr>Récoltez-hacheuse %s au champ %d. Apportez le produit à %s.</fr>
 			<cz>Posekejte %s na poli %d a odvezte řezanku do %s.</cz>
 			<ru>Срежьте %s на поле %d и доставьте корм в %s.</ru>
-			<pl>Zetnij %s na polu %d i dostarcz sieczkę do %s.
+			<pl>Zetnij %s na polu %d i dostarcz sieczkę do %s.</pl>
 		</text>
 		<text name="bcCheck">
 			<en><![CDATA[

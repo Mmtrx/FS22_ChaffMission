@@ -7,14 +7,18 @@
 --  v1.0.0.0    01.08.2023  initial
 --  v1.0.1.0    14.10.2023  handle fillTypeCategories in selling stations (#3). Allow choppedmaize /Maize+ (#2)
 --  v1.0.1.1    15.10.2023  fix MP sync (#3). Russian translation (#5)
+--  v1.0.2.0    16.10.2023  adequate sellpoints (#11) 
+--  v1.0.3.0    04.11.2023  mow header for grain chaff missions, lowered reward/ha, 
+--													lower prob on forage-ready fields (#16)
 --
 -- Attribution	modIcon harvester from <a href="https://www.freepik.com">Image by macrovector</a> 
 --=======================================================================================================
 ChaffMission = {
 	debug = true,
 	maizeplus = false,
-	REWARD_PER_HA = 5000,
-	SUCCESS_FACTOR = 0.90
+	REWARD_PER_HA = 2500,
+	SUCCESS_FACTOR = 0.90,
+	PROBABILITY	= 0.5
 }
 function debugPrint(text, ...)
 	if ChaffMission.debug  then
@@ -95,10 +99,10 @@ function ChaffMission.canRunOnField(field, sprayFactor, fieldSpraySet, fieldPlow
 	end
 	local fruitDesc = g_fruitTypeManager:getFruitTypeByIndex(fruitType)
 	
-	if maxGrowthState == fruitDesc.minForageGrowthState then
+	if maxGrowthState == fruitDesc.minForageGrowthState and math.random() < ChaffMission.PROBABILITY then
 		return true, FieldManager.FIELDSTATE_GROWING, maxGrowthState
 
-	elseif maxHarvestState ~= nil and math.random() < 0.4 then -- leave some fields for harvest missions
+	elseif maxHarvestState ~= nil and math.random() < ChaffMission.PROBABILITY then -- leave some fields for harvest missions
 		return true, FieldManager.FIELDSTATE_GROWING, maxHarvestState
 	end
 	return false
@@ -137,9 +141,9 @@ end
 function ChaffMission:updateRewardPerHa()
 	return nil
 end
-function ChaffMission:getVehicleVariant()
-	return nil 
-end
+--function ChaffMission:getVehicleVariant()
+--	return nil 
+--end
 
 -----------------------------------------------------------------------------------------------
 function getIsAccessible(self, superf, farmId, x, z, workAreaType)

@@ -5,12 +5,14 @@
 	Author:     Mmtrx       
 	Changelog:
 	 v1.0.0.0   21.09.2023  initial 
+	 v1.0.3.0   04.11.2023  mow header for grain chaff missions (#16)
 ======================================================================================================-->
 <missionVehicles overwrite="false">
 	<variants/>
  
 	<mission type="chaff">
-		<group fieldSize="small">
+		<!-- maizeMission -->
+		<group fieldSize="small" variant="MAIZE">
 			<vehicle filename="$data/vehicles/lacotec/lhII/lhII.xml" /> 			<!-- harvester -->
 			<vehicle filename="$data/vehicles/kemper/plus345/plus345.xml" />		<!-- cutter -->
 			<vehicle filename="$data/vehicles/deutzFahr/series7/series7.xml"/>  	<!-- tractor -->
@@ -28,7 +30,7 @@
 			</vehicle>
 		</group>
 
-		<group fieldSize="small">
+		<group fieldSize="small" variant="MAIZE">
 			<vehicle filename="$data/vehicles/newHolland/fr780/fr780.xml" > 		<!-- harvester -->
 				<configuration name="wheel" id="2"/>
 			</vehicle>
@@ -41,7 +43,7 @@
 			</vehicle>
 		</group>
 
-		<group fieldSize="medium">  <!-- use 7.5 m cutter -->
+		<group fieldSize="medium" variant="MAIZE">  <!-- use 7.5 m cutter -->
 			<vehicle filename="$data/vehicles/claas/jaguar960TT/jaguar960TT.xml" /> <!-- harvester -->
 			<vehicle filename="$data/vehicles/claas/orbis750/orbis750.xml" />		<!-- cutter -->
 			<vehicle filename="$data/vehicles/claas/arion600/arion600.xml" > 		<!-- tractor -->
@@ -51,7 +53,7 @@
 			<vehicle filename="$data/vehicles/brantner/ta23071/ta23071.xml"/> 		<!-- trailer -->
 		</group>
 
-		<group fieldSize="medium">
+		<group fieldSize="medium" variant="MAIZE">
 			<vehicle filename="$data/vehicles/johnDeere/series9000/series9000.xml" >		<!-- harvester -->
 				<configuration name="pipe" id="2"/>
 				<configuration name="wheel" id="2"/>
@@ -62,7 +64,7 @@
 			<vehicle filename="$data/vehicles/fliegl/tmk273/tmk273.xml"/>			<!-- trailer -->
 		</group>
 
-		<group fieldSize="medium">
+		<group fieldSize="medium" variant="MAIZE">
 			<vehicle filename="$data/vehicles/newHolland/fr780/fr780.xml" > 		<!-- harvester -->
 				<configuration name="wheel" id="2"/>
 			</vehicle>
@@ -73,7 +75,7 @@
 			<vehicle filename="$data/vehicles/kaweco/radium255/radium255.xml"/>		<!-- trailer -->
 		</group>
 
-		<group fieldSize="large"> 	<!-- use 9 m cutter -->
+		<group fieldSize="large" variant="MAIZE"> 	<!-- use 9 m cutter -->
 			<vehicle filename="$data/vehicles/fendt/katana650/katana650.xml" >		<!-- harvester -->
 				<configuration name="pipe" id="3"/>
 				<configuration name="wheel" id="2"/>
@@ -89,7 +91,7 @@
 			</vehicle>
 		</group>
 
-		<group fieldSize="large"> 	
+		<group fieldSize="large" variant="MAIZE"> 	
 			<vehicle filename="$data/vehicles/johnDeere/series9000/series9000.xml">	<!-- harvester -->
 				<configuration name="pipe" id="3"/>
 				<configuration name="wheel" id="2"/>
@@ -107,7 +109,7 @@
 			</vehicle>
 		</group>
 
-		<group fieldSize="large">
+		<group fieldSize="large" variant="MAIZE">
 			<vehicle filename="$data/vehicles/krone/bigX1180/bigX1180.xml" >		<!-- harvester -->
 				<configuration name="pipe" id="2"/>
 				<configuration name="wheel" id="2"/>
@@ -118,5 +120,94 @@
 			</vehicle>
 			<vehicle filename="$data/vehicles/krampe/sks30_150/sks30_150.xml"/> 	<!-- trailer -->
 		</group>
-	</mission>
-</missionVehicles>
+
+		<!-- grain Mission -->
+		<group fieldSize="small" variant="GRAIN">
+			<vehicle filename="$data/vehicles/newHolland/fr780/fr780.xml" > 		<!-- harvester -->
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/claas/directDisc500/directDisc500.xml"/>	<!-- cutter -->
+			<vehicle filename="$data/vehicles/fendt/favorit500/favorit500.xml" /> 	<!-- tractor -->
+			<vehicle filename="$data/vehicles/claas/carat/carat.xml">				<!-- trailer -->
+				<configuration name="fillVolume" id="2" />
+				<configuration name="fillUnit" id="2" />
+				<configuration name="baseMaterial" id="2"/>
+			</vehicle>
+		</group>
+
+		<group fieldSize="medium" variant="GRAIN">  <!-- use 7.5 m cutter -->
+			<vehicle filename="$data/vehicles/claas/jaguar960TT/jaguar960TT.xml" /> <!-- harvester -->
+			<vehicle filename="$data/vehicles/claas/directDisc500/directDisc500.xml" />		<!-- cutter -->
+			<vehicle filename="$data/vehicles/claas/arion600/arion600.xml" > 		<!-- tractor -->
+				<configuration name="motor" id="3"/>
+				<configuration name="wheel" id="4"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/brantner/ta23071/ta23071.xml"/> 		<!-- trailer -->
+		</group>
+
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/johnDeere/series9000/series9000.xml" >		<!-- harvester -->
+				<configuration name="pipe" id="2"/>
+				<configuration name="wheel" id="2"/>
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/spartan610/spartan610.xml"/><!-- cutter -->
+			<vehicle filename="$data/vehicles/deutzFahr/series7/series7.xml"/>  	<!-- tractor -->
+			<vehicle filename="$data/vehicles/fliegl/tmk273/tmk273.xml"/>			<!-- trailer -->
+		</group>
+
+		<group fieldSize="medium" variant="GRAIN">
+			<vehicle filename="$data/vehicles/newHolland/fr780/fr780.xml" > 		<!-- harvester -->
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/xDisc620/xDisc620.xml"/><!-- cutter -->
+			<vehicle filename="$data/vehicles/newHolland/t8/t8.xml"> 				<!-- tractor -->
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/kaweco/radium255/radium255.xml"/>		<!-- trailer -->
+		</group>
+
+		<group fieldSize="large" variant="GRAIN"> 	<!-- use 9 m cutter -->
+			<vehicle filename="$data/vehicles/fendt/katana650/katana650.xml" >		<!-- harvester -->
+				<configuration name="pipe" id="3"/>
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/capello/spartan610/spartan610.xml" >			<!-- cutter -->
+			</vehicle>
+			<vehicle filename="$data/vehicles/newHolland/t8/t8.xml">				<!-- tractor -->
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/bergmann/htw65/htw65.xml"> 			<!-- trailer -->
+				<configuration name="cover" id="2"/>
+			</vehicle>
+		</group>
+
+		<group fieldSize="large" variant="GRAIN"> 	
+			<vehicle filename="$data/vehicles/johnDeere/series9000/series9000.xml">	<!-- harvester -->
+				<configuration name="pipe" id="3"/>
+				<configuration name="wheel" id="2"/>
+				<configuration name="motor" id="3"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/xDisc620/xDisc620.xml" ><!-- cutter -->
+			</vehicle>
+			<vehicle filename="$data/vehicles/johnDeere/series8R/series8R.xml">		<!-- tractor -->
+				<configuration name="motor" id="2" />
+				<configuration name="wheel" id="6" />
+			</vehicle>
+			<vehicle filename="$data/vehicles/bergmann/htw65/htw65.xml"> 			<!-- trailer -->
+				<configuration name="cover" id="2"/>
+			</vehicle>
+		</group>
+
+		<group fieldSize="large" variant="GRAIN">
+			<vehicle filename="$data/vehicles/krone/bigX1180/bigX1180.xml" >		<!-- harvester -->
+				<configuration name="pipe" id="2"/>
+				<configuration name="wheel" id="2"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/krone/xDisc620/xDisc620.xml" /><!-- cutter -->
+			<vehicle filename="$data/vehicles/man/tgs18500/tgs18500.xml">	 		<!-- truck -->
+				<configuration name="baseMaterial" id="15"/>
+			</vehicle>
+			<vehicle filename="$data/vehicles/krampe/sks30_150/sks30_150.xml"/> 	<!-- trailer -->
+		</group>
+	</mission></missionVehicles>
