@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="77">
 	<author>Mmtrx</author>
 	<version>1.0.3.0</version>
@@ -7,7 +7,7 @@
 		<de>Häcksel-Aufträge</de>
 		<fr>Contrats De Forage</fr>
 		<cz>Zakázky na řezanku</cz>
-		<ru>Контракты на заготовку кормов</ru>
+		<ru>Контракты На Заготовку Корма</ru>
 		<pl>Kontrakt na sieczkę</pl>
 	</title>
 	<description>
@@ -80,7 +80,7 @@ v1.0.1.1
 			<de>Häckseln</de>
 			<fr>Hacheuse</fr>
 			<cz>Řezanka</cz>
-			<ru>Кормовой</ru>
+			<ru>Заготовка корма</ru>
 			<pl>Sieczka</pl>
 		</text>
 		<text name="fieldJob_desc_action_forage">
@@ -88,7 +88,7 @@ v1.0.1.1
 			<de>zum Häckseln</de>
 			<fr>pour hacher</fr>
 			<cz>pro sklizeň řezanky</cz>
-			<ru>для заготовки кормов</ru>
+			<ru>за заготовку корма</ru>
 			<pl>za zebranie uprawy na sieczkę</pl>
 		</text>
 		<text name="fieldJob_desc_forage">
@@ -96,7 +96,7 @@ v1.0.1.1
 			<de>Häcksle %s auf Feld %d, und liefere das Häckselgut an %s.</de>
 			<fr>Récoltez-hacheuse %s au champ %d. Apportez le produit à %s.</fr>
 			<cz>Posekejte %s na poli %d a odvezte řezanku do %s.</cz>
-			<ru>Срежьте %s на поле %d и доставьте корм в %s.</ru>
+			<ru>Обработайте %s на поле %d и доставьте корм в %s.</ru>
 			<pl>Zetnij %s na polu %d i dostarcz sieczkę do %s.</pl>
 		</text>
 		<text name="bcCheck">
